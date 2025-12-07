@@ -352,7 +352,7 @@
       <!-- <p class="subtitle">A tiny website made with lots of love and a little JavaScript.</p> -->
       <div class="cta-row">
         <button class="btn" id="celebrateBtn" aria-label="Celebrate with confetti">Celebrate 🎉</button>
-        <button class="btn secondary" id="openLetter">Open Your Letter ✉️</button>
+        <button class="btn secondary" id="openLetter">For You 💌</button>
         <button class="btn secondary" id="musicBtn" aria-pressed="false">Play a Song ▶️</button>
         <button class="btn secondary" id="previewBtn" style="display:none">Preview Celebration 🔥🎊</button>
       </div>
@@ -492,7 +492,7 @@
   <div class="backdrop" id="backdrop" role="dialog" aria-modal="true" aria-labelledby="letterTitle" aria-hidden="true">
     <div class="modal">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-        <h3 id="letterTitle">Hey Ruchi...</h3>
+        <h3 id="letterTitle">Hey Ruchi💗...</h3>
         <button class="btn secondary" id="closeLetter" aria-label="Close letter">Close ✖</button>
       </div>
       <p class="muted" id="letterText">
@@ -520,7 +520,7 @@
         I’ll spend a lifetime admiring the magic you carry — <br>
         right from the very start. <br>
         <br>
-        Happiest Birthday 🫶💖💗🥰💟! I’m really glad you were born. <br>
+        Happiest Birthday 💟🎀🎁! I’m really glad you were born. <br>
         <br>
         From, <br>
         Harshil.
@@ -541,7 +541,7 @@
     const HER_NAME = "Ruchi";
     const HER_BDAY = { month: 12, day: 8 };
     const FROM_NAME = "Harshil";
-    const SONG_URL = "";
+    const SONG_URL = "Katy Perry - Birthday (Lyric Video).mp3";
 
     // Provide static images (persist after reload/hosting). Update to your actual paths.
     const PHOTOS = [
@@ -809,7 +809,6 @@
         setTimeout(() => clearInterval(rainInt), durationMs);
       }
       function startCelebration() {
-        if (celebrationStarted) return; celebrationStarted = true;
         // big bursts to kick off
         burst(W * 0.25, H * 0.25, 140); burst(W * 0.75, H * 0.25, 140); burst(W * 0.5, H * 0.2, 220);
         startFireworks(10000);
@@ -820,7 +819,6 @@
         if (audio && SONG_URL) {
           audio.play().then(() => {
             if (musicBtn) { musicBtn.textContent = 'Pause Song ⏸️'; musicBtn.setAttribute('aria-pressed', 'true'); }
-            setTimeout(() => { if (!audio.paused) { audio.pause(); if (musicBtn) { musicBtn.textContent = 'Play a Song ▶️'; musicBtn.setAttribute('aria-pressed', 'false'); } } }, 7000);
           }).catch(() => { });
         }
       }
@@ -902,10 +900,6 @@
       t('Celebrate button present', !!document.getElementById('celebrateBtn'));
     });
   </script>
-</body>
-
-</html>
-</script>
 </body>
 
 </html>
