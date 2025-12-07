@@ -795,7 +795,6 @@
       });
 
       // ---- Celebration Orchestrator (auto on countdown end + preview)
-      let celebrationStarted = false;
       function confettiRain(durationMs = 8000, rate = 40) {
         const rainInt = setInterval(() => {
           for (let i = 0; i < rate; i++) {
@@ -806,7 +805,6 @@
         setTimeout(() => clearInterval(rainInt), durationMs);
       }
       function startCelebration() {
-        if (celebrationStarted) return; celebrationStarted = true;
         // big bursts to kick off
         burst(W * 0.25, H * 0.25, 140); burst(W * 0.75, H * 0.25, 140); burst(W * 0.5, H * 0.2, 220);
         startFireworks(10000);
@@ -817,7 +815,6 @@
         if (audio && SONG_URL) {
           audio.play().then(() => {
             if (musicBtn) { musicBtn.textContent = 'Pause Song ⏸️'; musicBtn.setAttribute('aria-pressed', 'true'); }
-            setTimeout(() => { if (!audio.paused) { audio.pause(); if (musicBtn) { musicBtn.textContent = 'Play a Song ▶️'; musicBtn.setAttribute('aria-pressed', 'false'); } } }, 7000);
           }).catch(() => { });
         }
       }
